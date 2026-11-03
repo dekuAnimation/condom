@@ -1,0 +1,3 @@
+alter policy notices_owner_select on storage.objects to authenticated using (bucket_id='notices' and exists(select 1 from public.boards b where b.id::text=split_part(storage.objects.name,'/',1) and b.owner_id=(select auth.uid())));
+alter policy notices_owner_insert on storage.objects to authenticated with check (bucket_id='notices' and exists(select 1 from public.boards b where b.id::text=split_part(storage.objects.name,'/',1) and b.owner_id=(select auth.uid())));
+alter policy notices_owner_delete on storage.objects to authenticated using (bucket_id='notices' and exists(select 1 from public.boards b where b.id::text=split_part(storage.objects.name,'/',1) and b.owner_id=(select auth.uid())));
