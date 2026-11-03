@@ -1,0 +1,55 @@
+BACHECA - PLAYER WINDOWS 8 / 8.1 - VERSIONE 1.0
+
+REQUISITI
+Windows 8 o successivo, .NET Framework 4.5 o successivo, x86 o x64.
+Non richiede installazione, browser, Python o Node sul PC della bacheca.
+Il programma e compilato a 32 bit e non e firmato digitalmente.
+
+PROVA LOCALE
+1. Estrai tutti i file ZIP in una cartella stabile, ad esempio C:\Bacheca.
+2. Apri Bacheca.exe e annulla la configurazione iniziale.
+3. Premi F3 e scegli immagini JPG o PNG.
+4. La sequenza cambia immagine ogni 30 secondi. Non serve Internet.
+
+COLLEGAMENTO AL SITO
+1. Configura Supabase seguendo la guida inclusa nel progetto.
+2. Nel sito apri Schermi > Collega un PC > Genera configurazione.
+3. Nel player premi F2 e incolla la configurazione.
+4. Seleziona l'avvio automatico e salva.
+Il token viene cifrato con Windows DPAPI per l'utente corrente.
+Per il download cloud serve Internet con TLS 1.2 e certificati validi.
+Se la connessione non funziona, controlla data e ora del PC e stato.log.
+Non disabilitare mai la verifica dei certificati.
+
+TASTI
+F2: configura collegamento e avvio automatico.
+F3: importa immagini locali (il cloud le sostituisce al prossimo aggiornamento).
+F11: finestra / schermo intero.
+Freccia destra: immagine successiva.
+Esc: chiudi il programma.
+
+FUNZIONAMENTO
+Una immagine alla volta, nessuna animazione, controllo cloud ogni minuto.
+Scarica solo immagini nuove o danneggiate e ne verifica SHA-256.
+La nuova sequenza viene attivata soltanto dopo il download completo.
+La cache resta sul disco e viene riprodotta se manca Internet.
+Se la sequenza cloud e vuota, mostra la schermata di attesa.
+La revoca blocca aggiornamenti futuri, non cancella immagini dal PC offline.
+
+DATI E DIAGNOSTICA
+Cartella: %LOCALAPPDATA%\Bacheca
+config.dat: configurazione cifrata per l'utente Windows.
+manifest.json: ultima sequenza valida.
+immagini: copie locali delle immagini.
+stato.log: ultimi risultati della sincronizzazione, senza token.
+
+ALIMENTAZIONE
+Durante l'esecuzione il player richiede a Windows di mantenere acceso lo schermo.
+Imposta anche sospensione e salvaschermo secondo le esigenze del condominio.
+Avvio automatico significa dopo l'accesso dell'utente a Windows.
+La riaccensione dopo un blackout dipende dal BIOS del PC; l'eventuale accesso
+automatico di Windows deve essere configurato separatamente sul posto.
+
+SPOSTAMENTO
+Se sposti Bacheca.exe, apri F2 e salva di nuovo per aggiornare l'avvio automatico.
+Prima di dismettere il PC, revoca il dispositivo dal sito e cancella la cache.
