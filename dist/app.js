@@ -1,5 +1,5 @@
 const $ = s => document.querySelector(s);
-const state = {slides:[], devices:[], board:null, session:null, config:JSON.parse(localStorage.getItem('bacheca.cloud')||'null')||{url:'https://ycbptntmbolfxkpfzxbj.supabase.co',key:''}, demo:true, preview:0, busy:false};
+const state = {slides:[], devices:[], board:null, session:null, config:JSON.parse(localStorage.getItem('bacheca.cloud')||'null')||{url:'https://ycbptntmbolfxkpfzxbj.supabase.co',key:'sb_publishable_gNfIiDYSqo0jySpgJuD-FA_1iP8RABq'}, demo:true, preview:0, busy:false};
 const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let toastTimer;
 function toast(message){$('#toast').textContent=message;$('#toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),6000);}
